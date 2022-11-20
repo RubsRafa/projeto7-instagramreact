@@ -1,15 +1,39 @@
+import React from "react"
+
 export default function Posts() {
+  const [coracao, setCoraocao] = React.useState (<ion-icon onClick={curtir} class="dislike" data-test="like-post" name="heart-outline"></ion-icon>);
+  const [salva, setSalva] = React.useState (<ion-icon onClick={salvar} class="unsave" data-test="save-post" name="bookmark-outline"></ion-icon>);
+  
+  
   const posts = [{ img: "assets/img/meowed.svg", nome: 'meowed', conteudo: "assets/img/gato-telefone.svg", curtidas: "assets/img/respondeai.svg", curtido: 'respondeai', quantidade:'101.523' },
   { img: "assets/img/barked.svg", nome: 'barked', conteudo: "assets/img/dog.svg", curtidas: "assets/img/adorable_animals.svg", curtido: 'adorable_animals', quantidade:'99.159' }]
 
+
+  function curtir () {
+    setCoraocao (<ion-icon onClick={descurtir} class="like" name="heart-sharp"></ion-icon>)
+  }
+  function descurtir () {
+    setCoraocao (<ion-icon onClick={curtir} class="dislike" data-test="like-post" name="heart-outline"></ion-icon>)
+  }
+
+
+  function salvar () {
+    setSalva (<ion-icon onClick={dessalvar} class="save" name="bookmark-sharp"></ion-icon>)
+  }
+  function dessalvar () {
+    setSalva (<ion-icon onClick={salvar} class="unsave" data-test="save-post" name="bookmark-outline"></ion-icon>)
+  }
+
+
   return (
     <div class="posts">
-      {posts.map ((p) => <Post img={p.img} nome={p.nome} conteudo={p.conteudo} curtidas={p.curtidas} curtido={p.curtido} quantidade={p.quantidade} />)}
+      {posts.map ((p) => <Post salva={salva} coracao={coracao} img={p.img} nome={p.nome} conteudo={p.conteudo} curtidas={p.curtidas} curtido={p.curtido} quantidade={p.quantidade} />)}
     </div>
   )
 }
 
 function Post(props) {
+  console.log (props)
   return (
     <div data-test="post" class="post">
       <div class="topo">
@@ -29,12 +53,12 @@ function Post(props) {
       <div class="fundo">
         <div class="acoes">
           <div>
-            <ion-icon data-test="like-post" name="heart-outline"></ion-icon>
+            {props.coracao}
             <ion-icon name="chatbubble-outline"></ion-icon>
             <ion-icon name="paper-plane-outline"></ion-icon>
           </div>
           <div>
-            <ion-icon data-test="save-post" name="bookmark-outline"></ion-icon>
+          {props.salva}
           </div>
         </div>
 

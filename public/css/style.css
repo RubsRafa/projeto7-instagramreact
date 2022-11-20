@@ -310,6 +310,26 @@ body {
   display: none !important;
 }
 
+
+.like {
+  color: red;
+}
+.salvar {
+  color: yellow;
+}
+.esconder {
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
 @media (max-width: 935px) {
   .sidebar {
     display: none;
