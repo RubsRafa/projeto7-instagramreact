@@ -17,6 +17,9 @@ export default function Posts() {
 function Post(props) {
 
   const qtddLike = props.q;
+  const resultado = (qtddLike + contador).toString(); 
+  const metade = Math.floor(resultado.length - 3);
+  const resultado2 = resultado.substr(0,metade)+"."+resultado.substr(metade);
 
   function curtirPorFoto () {
     setCoracao (<ion-icon onClick={descurtir} class="like" name="heart-sharp"></ion-icon>);
@@ -81,7 +84,7 @@ function Post(props) {
         <div class="curtidas">
           <img src={props.curtidas} />
           <div class="texto">
-          Curtido por <strong>{props.curtido}</strong> e <strong data-test="likes-number">outras {qtddLike + contador} pessoas</strong>
+          Curtido por <strong>{props.curtido}</strong> e <strong data-test="likes-number">outras {resultado2} pessoas</strong>
           </div>
         </div>
       </div>

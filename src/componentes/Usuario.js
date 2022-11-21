@@ -7,7 +7,7 @@ export default function Usuario() {
 
   function mudarNome () {
     const pegarNome = prompt ("Qual é o seu nome?")
-    if (pegarNome || pegarNome == '') {
+    if (pegarNome) {
       setNome (pegarNome)
     } else {
       return; 
