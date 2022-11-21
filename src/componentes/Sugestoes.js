@@ -12,7 +12,7 @@ export default function Sugestoes () {
       Sugestões para você
       <div>Ver tudo</div>
     </div>
-    {sugestoes.map ((s) => <Sugestao url={s.url} nome={s.nome} razao={s.razao} />)}
+    {sugestoes.map ((s) => <Sugestao key={s.nome} url={s.url} nome={s.nome} razao={s.razao} />)}
   </div>
     )
 }

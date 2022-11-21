@@ -3,17 +3,26 @@ import React from "react";
 export default function Usuario() {
   const [nome, setNome] = React.useState ('Catana');
   const [imagem, setImagem] = React.useState ('assets/img/catanacomics.svg');
-  const usuarios = [{ url: "assets/img/catanacomics.svg", nomeFantasia: 'catanacomics', nomeUsuario: 'Catana' }];
+  //const usuarios = [{ url: "assets/img/catanacomics.svg", nomeFantasia: 'catanacomics', nomeUsuario: 'Catana' }];
 
   function mudarNome () {
-    setNome (prompt ("Qual é o seu nome?"))
+    const pegarNome = prompt ("Qual é o seu nome?")
+    if (pegarNome || pegarNome == '') {
+      setNome (pegarNome)
+    } else {
+      return; 
+    }
   }
 
   function mudarImagem () {
-    setImagem (prompt("Qual será sua foto de perfil?"))
+    const pegarImagem = prompt ("Qual será sua foto de perfil?")
+    if (pegarImagem) {
+      setImagem (pegarImagem)
+    } else {
+      return; 
+    }
   }
-  console.log (setNome)
-  console.log (setImagem)
+  
   return (
     <div class="usuario" data-test="user">
       <img onClick={mudarImagem} data-test="profile-image" src={imagem} />
