@@ -26,7 +26,6 @@ function Post(props) {
     contador = 1;
   }
 
-
   const [coracao, setCoracao] = React.useState (<ion-icon onClick={curtir} data-test="like-post" name="heart-outline"></ion-icon>);
   const [salva, setSalva] = React.useState (<ion-icon onClick={salvar} data-test="save-post" name="bookmark-outline"></ion-icon>);
 
